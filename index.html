@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact QR Code Generator</title>
+</head>
+<body>
+    <h1>Contact QR Code Generator</h1>
+    <form method="post">
+        <table>
+        <tr><td><label>First Name: </td><td><input type="text" name="first_name" required></label></td></tr>
+        <tr><td><label>Last Name: </td><td><input type="text" name="last_name" required></label></td></tr>
+        <tr><td><label>Nickname: </td><td><input type="text" name="nickname"></label></td></tr>
+        <tr><td><label>Home Phone: </td><td><input type="text" name="home_phone"></label></td></tr>
+        <tr><td><label>Work Phone: </td><td><input type="text" name="work_phone"></label></td></tr>
+        <tr><td><label>Cell Phone: </td><td><input type="text" name="cell_phone"></label></td></tr>
+        <tr><td><label>Fax: </td><td><input type="text" name="fax"></label></td></tr>
+        <tr><td><label>Email: </td><td><input type="email" name="email" required></label></td></tr>
+        <tr><td><label>Work Email: </td><td><input type="email" name="work_email"></label></td></tr>
+        <tr><td><label>Home Street: </td><td><input type="text" name="home_street"></label></td></tr>
+        <tr><td><label>Home City: </td><td><input type="text" name="home_city"></label></td></tr>
+        <tr><td><label>Home State: </td><td><input type="text" name="home_state"></label></td></tr>
+        <tr><td><label>Home Postal Code: </td><td><input type="text" name="home_postal_code"></label></td></tr>
+        <tr><td><label>Home Country: </td><td><input type="text" name="home_country"></label></td></tr>
+        <tr><td><label>Work Street: </td><td><input type="text" name="work_street"></label></td></tr>
+        <tr><td><label>Work City: </td><td><input type="text" name="work_city"></label></td></tr>
+        <tr><td><label>Work State: </td><td><input type="text" name="work_state"></label></td></tr>
+        <tr><td><label>Work Postal Code: </td><td><input type="text" name="work_postal_code"></label></td></tr>
+        <tr><td><label>Work Country: </td><td><input type="text" name="work_country"></label></td></tr>
+        <tr><td><label>Organization: </td><td><input type="text" name="organization"></label></td></tr>
+        <tr><td><label>Title: </td><td><input type="text" name="title"></label></td></tr>
+        <tr><td><label>Role: </td><td><input type="text" name="role"></label></td></tr>
+        <tr><td><label>URL: </td><td><input type="url" name="url"></label></td></tr>
+        <tr><td><label>Work URL: </td><td><input type="url" name="work_url"></label></td></tr>
+        <tr><td><label>Twitter: </td><td><input type="url" name="twitter"></label></td></tr>
+        <tr><td><label>LinkedIn: </td><td><input type="url" name="linkedin"></label></td></tr>
+        <tr><td><label>Birthday: </td><td><input type="date" name="birthday"></label></td></tr>
+        <tr><td><label>Anniversary: </td><td><input type="date" name="anniversary"></label></td></tr>
+        <tr><td><label>Note: </td><td><textarea name="note"></textarea></label></td></tr>
+        <tr><td><label>Latitude: </td><td><input type="text" name="latitude"></label></td></tr>
+        <tr><td><label>Longitude: </td><td><input type="text" name="longitude"></label></td></tr>
+        <tr><td><button type="submit">Add Contact</button></td></tr>
+        </table>
+    </form>
+
+    <h2>Contacts</h2>
+    <ul>
+        {% for contact in contacts %}
+            <li>{{ contact.first_name }} {{ contact.last_name }} - 
+                <a href="{{ url_for('edit', id=contact.id) }}">Edit</a> | 
+                <a href="{{ url_for('view_qr', id=contact.id) }}">View QR</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
