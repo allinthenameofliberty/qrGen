@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View QR Code</title>
+</head>
+<body>
+    <h1>QR Code for {{ contact.first_name }} {{ contact.last_name }}</h1>
+    <img src="data:image/png;base64,{{ qr_code }}" alt="QR Code">
+    <a href="{{ url_for('index') }}">Back to Contacts</a>
+</body>
+</html>
